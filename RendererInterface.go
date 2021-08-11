@@ -15,7 +15,7 @@ type Renderer interface {
 	// Set font texture
 	SetFontTexture(image *RGBA32Image)
 	// Load image and return the TextureID
-	LoadImage(image *image.RGBA) (TextureID, error)
+	LoadImage(image *image.Image) (TextureID, error)
 	// Release image
 	ReleaseImage(textureId TextureID)
 	// Dispose

@@ -396,7 +396,7 @@ func (renderer *OpenGL3) SetTextureMagFilter(mag uint) error {
 }
 
 // Load image and return the TextureID
-func (renderer *OpenGL3) LoadImage(image *image.RGBA) (TextureID, error) {
+func (renderer *OpenGL3) LoadImage(image *image.Image) (TextureID, error) {
 	texture, err := renderer.createImageTexture(image)
 	if err != nil {
 		return 0, err
@@ -411,7 +411,7 @@ func (renderer *OpenGL3) ReleaseImage(textureId TextureID) {
 	gl.DeleteTextures(1, &handle)
 }
 
-func (renderer *OpenGL3) createImageTexture(img *image.RGBA) (TextureID, error) {
+func (renderer *OpenGL3) createImageTexture(img *image.Image) (TextureID, error) {
 	// Upload texture to graphics system
 	var lastTexture int32
 	var handle uint32
